@@ -145,7 +145,7 @@
       });
     });
 
-    fetch("earthquake-azure-data-pipeline/README.md")
+    fetch("proyect_scripts/earthquake-azure/README.md")
       .then(r => r.text())
       .then(text => {
         document.getElementById("readme-content").innerHTML = marked.parse(text);
