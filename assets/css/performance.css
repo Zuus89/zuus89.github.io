@@ -1,0 +1,78 @@
+/* Performance Optimizations */
+
+/* Lazy loading for images and videos */
+img[loading="lazy"],
+video[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded,
+video[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Optimize font loading */
+.fonts-loaded {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.fonts-loaded h1, .fonts-loaded h2, .fonts-loaded h3 {
+    font-family: 'Merriweather', serif;
+}
+
+/* Reduce layout shift for videos */
+video {
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* Optimize images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Critical CSS inline styles */
+.critical-above-fold {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Preload important resources */
+.preload-image {
+    content: '';
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    background: url('media/covers/earthquake_cover.png') no-repeat;
+    background: url('media/covers/retail_sql_cover.jpg') no-repeat;
+    background: url('media/covers/spotify_cover.jpg') no-repeat;
+}
+
+/* Reduce repaints and reflows */
+.tech-tags {
+    contain: layout style;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Performance improvements for mobile */
+@media (max-width: 768px) {
+    video {
+        will-change: transform;
+    }
+    
+    .image {
+        will-change: transform;
+    }
+}
