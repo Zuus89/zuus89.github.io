@@ -84,8 +84,8 @@
         <h2>Earthquake Azure Data Pipeline</h2>
         <a href="https://github.com/Zuus89/earthquake-azure-data-pipeline" class="button" target="_blank">View on GitHub</a>
         <br><br>
-        <a href="images/earthquake_cover.png" target="_blank">
-          <img src="images/earthquake_cover.png" alt="Earthquake Project Cover" style="width: 30%; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.2);" />
+        <a href="media/covers/earthquake_cover.png" target="_blank">
+          <img src="media/covers/earthquake_cover.png" alt="Earthquake Project Cover" style="width: 30%; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.2);" />
         </a>
         <p style="text-align:center; max-width: 600px; margin: 20px auto;">
           An end-to-end automated data pipeline in Microsoft Fabric transforming earthquake data from the USGS API into actionable insights using PySpark, Data Factory, and Power BI.
@@ -152,7 +152,7 @@
       });
     });
 
-    fetch("proyect_scripts/earthquake-azure/README.md")
+    fetch("resources/project-files/earthquake-azure/README.md")
       .then(r => r.text())
       .then(text => {
         document.getElementById("readme-content").innerHTML = marked.parse(text);

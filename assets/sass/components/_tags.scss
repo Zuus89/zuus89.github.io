@@ -1,0 +1,19 @@
+// Tech Tags
+// Styled labels for technology/tool tags on project cards
+
+.tech-tags {
+	text-align: center;
+	margin: 15px 0;
+	contain: layout style;
+}
+
+.tech-tag {
+	display: inline-block;
+	padding: 4px 8px;
+	background-color: #f0f0f0;
+	border-radius: 4px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	font-size: 0.85em;
+	color: #555;
+}

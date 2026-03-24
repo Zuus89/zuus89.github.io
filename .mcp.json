@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "memory": {
+      "command": "node",
+      "args": ["C:/Users/celto/AppData/Roaming/npm/node_modules/@modelcontextprotocol/server-memory/dist/index.js"],
+      "env": {
+        "MEMORY_FILE_PATH": "C:/Users/celto/.claude/projects/portfolio_website_memory.jsonl"
+      }
+    }
+  }
+}

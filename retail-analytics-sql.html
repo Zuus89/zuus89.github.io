@@ -72,8 +72,8 @@
       <header class="major">
         <h2>Retail Analytics SQL</h2>
         <p><a href="https://github.com/Zuus89/retail-analytics-sql" class="button">View on GitHub</a></p>
-        <a href="images/retail_sql_cover.jpg" target="_blank">
-          <img src="images/retail_sql_cover.jpg" alt="Retail SQL Project Cover" style="width: 30%; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.2);" />
+        <a href="media/covers/retail_sql_cover.jpg" target="_blank">
+          <img src="media/covers/retail_sql_cover.jpg" alt="Retail SQL Project Cover" style="width: 30%; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.2);" />
         </a>
         <p style="text-align:center;">
           A structured SQL portfolio focused on solving business problems through sales analysis, segmentation, KPIs and optimization challenges using retail datasets. Includes a README and interactive tabs to browse both documentation and SQL code.
@@ -148,13 +148,13 @@
       });
     });
 
-    fetch("proyect_scripts/retail-analytics-sql/README.md")
+    fetch("resources/project-files/retail-analytics-sql/README.md")
       .then(r => r.text())
       .then(text => {
         document.getElementById("readme-content").innerHTML = marked.parse(text);
       });
 
-    fetch("proyect_scripts/retail-analytics-sql/commercial_queries.sql")
+    fetch("resources/project-files/retail-analytics-sql/commercial_queries.sql")
       .then(r => r.text())
       .then(text => {
         document.getElementById("sql-content").textContent = text;
