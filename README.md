@@ -1,79 +1,36 @@
-# 🎵 Spotify 2023 Power BI Dashboard
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This project analyzes the **most streamed songs on Spotify in 2023**, exploring trends in **popularity, artists, genres, and song characteristics** using **Power BI**.  
+## Getting Started
 
-The dataset contains detailed information about **streams, duration, BPM, key, danceability, energy levels, and more**, allowing for **data-driven insights** into the music industry.  
+First, run the development server:
 
----
-
-## 🎯 Objective
-
-Develop an **interactive Power BI dashboard** to visualize and analyze **trends in Spotify’s most streamed songs**, leveraging **data visualization and analytics techniques**.
-
----
-
-## 📌 Project Stages
-
-### 1️⃣ **Data Cleaning & Preparation**
-- ✅ Imported dataset from [Kaggle](https://www.kaggle.com/datasets/nelgiriyewithana/top-spotify-songs-2023).
-- ✅ Removed duplicates and handled missing values.
-- ✅ Standardized column names and transformed data types.
-
-### 2️⃣ **Exploratory Data Analysis (EDA)**
-- 🎵 **Which artists dominated Spotify in 2023?**
-- 🎤 **What are the most popular music genres?**
-- 🎚️ **How do BPM, energy, and danceability impact popularity?**
-- 🌎 **Which countries contributed the most to streaming?**
-
-### 3️⃣ **Dashboard Development**
-- ✅ Built **interactive visualizations** in Power BI.
-- ✅ Created **filters and drill-down options** for user exploration.
-- ✅ Designed a **clean and intuitive UI** for data storytelling.
-
----
-
-## 📊 **Power BI Dashboard Preview**
-
-🚀 **(Add a screenshot of your Power BI dashboard here)**  
-
----
-
-## 📎 **Project Structure**
-```
-spotify-2023-powerbi-dashboard/
-├── data/ # Original dataset (CSV)
-├── pbix/ # Power BI project file
-├── visuals/ # Dashboard screenshots
-├── documentation/ # Report insights & analysis
-└── README.md # This file
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 🧰 **Technologies Used**
-- **Power BI** 📊 – Interactive data visualization.
-- **DAX & Power Query** 🔍 – Data transformation & calculations.
-- **SQL (Optional)** 🛠️ – Querying structured data.
-- **Kaggle Dataset** 🎶 – Streaming data source.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
----
+## Learn More
 
-## 🚀 **Next Steps**
-✅ Add **more advanced Power BI visualizations**  
-✅ Implement **predictive insights using DAX measures**  
-✅ Publish the dashboard online for public access  
+To learn more about Next.js, take a look at the following resources:
 
----
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 📫 **Contact**
-📧 celton.aret@gmail.com  
-📞 +56 9 3438 0596  
-🔗 [LinkedIn](https://www.linkedin.com/in/cristobalelton/)  
-🐙 [GitHub](https://github.com/Zuus89)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-### 🌟 **How to Contribute?**
-If you're interested in **improving or extending this dashboard**, feel free to **open a pull request or reach out**!  
-All feedback and suggestions are welcome. 🚀
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
