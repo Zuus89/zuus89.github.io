@@ -1,39 +1,49 @@
-import '@/styles/global/main.scss';
+import '@/styles/globals.css';
 import type { Metadata } from 'next';
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
-  title: 'Cristóbal Elton | Portfolio - Data Analytics & Engineering',
+  title: 'Cristóbal Elton | Data Analytics & Engineering',
   description:
-    'Cristóbal Elton - Portfolio de proyectos en Data Analytics, Data Engineering, Power BI, SQL y Python.',
+    'Independent Data Architect & Engineer — building scalable analytics infrastructure, ETL pipelines, and enterprise data models.',
   openGraph: {
-    title: 'Cristóbal Elton — Portfolio de Proyectos en Data & Tecnología',
+    title: 'Cristóbal Elton — Data Architecture & Engineering Portfolio',
     description:
-      'Explora mis proyectos de Data Analytics, SQL, Power BI y visualizaciones interactivas.',
+      'Explore projects in Data Analytics, SQL, Power BI, and interactive data visualizations.',
     images: ['https://cristobalelton.com/media/covers/preview_card.jpg'],
     url: 'https://cristobalelton.com',
     type: 'website',
-    siteName: 'Cristóbal Elton Portfolio',
+    siteName: 'Cristóbal Elton',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cristóbal Elton — Portfolio de Proyectos en Data & Tecnología',
+    title: 'Cristóbal Elton — Data Architecture & Engineering Portfolio',
     description:
-      'Explora mis proyectos de Data Analytics, SQL, Power BI y visualizaciones interactivas.',
+      'Explore projects in Data Analytics, SQL, Power BI, and interactive data visualizations.',
     images: ['https://cristobalelton.com/media/covers/preview_card.jpg'],
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="en" className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
       <head>
         <link rel="icon" type="image/x-icon" href="/media/icons/favicon.ico" />
         <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css" />
-        <meta httpEquiv="Cache-Control" content="public, max-age=3600" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="is-preload">
+      <body className="bg-background text-primary font-sans antialiased">
         {children}
       </body>
     </html>

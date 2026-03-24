@@ -7,7 +7,7 @@ interface MarkdownRendererProps {
 
 export default function MarkdownRenderer({ content, className }: MarkdownRendererProps) {
   return (
-    <div className={className || 'markdown-content'}>
+    <div className={`prose prose-invert max-w-none ${className || ''}`}>
       <ReactMarkdown>{content}</ReactMarkdown>
     </div>
   );

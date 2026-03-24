@@ -1,0 +1,235 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ============================================
+   Design System: "The Reactive Data Cube"
+   Dark architectural theme with cyan accent
+   ============================================ */
+
+@theme {
+  /* --- Colors --- */
+  --color-background: #0a0e17;
+  --color-surface: #0f1520;
+  --color-surface-hover: #1e2530;
+  --color-border: #3f434a;
+  --color-border-hover: #52565d;
+  --color-primary: #e8ecf1;
+  --color-muted: #8a94a6;
+  --color-muted-dim: #5a6478;
+  --color-accent: #00dcff;
+  --color-accent-hover: #00c4e6;
+  --color-accent-dim: rgba(0, 220, 255, 0.15);
+  --color-accent-glow: rgba(0, 220, 255, 0.4);
+  --color-accent-glow-subtle: rgba(0, 220, 255, 0.08);
+  --color-success: #10b981;
+  --color-glass: rgba(20, 30, 50, 0.6);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-card-bg: rgba(15, 22, 36, 0.7);
+  --color-border-glow: rgba(0, 220, 255, 0.25);
+
+  /* --- Typography --- */
+  --font-sans: var(--font-space-grotesk), 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), 'JetBrains Mono', ui-monospace, monospace;
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.3;
+  --text-3xl: 2.25rem;
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 3rem;
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 3.75rem;
+  --text-5xl--line-height: 1.05;
+
+  --tracking-tight: -0.02em;
+  --tracking-tighter: -0.04em;
+
+  /* --- Spacing (8px base) --- */
+  --spacing-micro: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
+  --spacing-5xl: 128px;
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* --- Transitions --- */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-card: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* --- Animations --- */
+  --animate-fade-in: fade-in 0.5s ease-out forwards;
+  --animate-slide-up: slide-up 0.4s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-cube-float: cube-float 8s ease-in-out infinite;
+  --animate-float-code: float-code 6s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+@keyframes cube-float {
+  0%, 100% { transform: rotateX(-15deg) rotateY(-25deg) translateY(0); }
+  50% { transform: rotateX(-12deg) rotateY(-20deg) translateY(-15px); }
+}
+
+@keyframes float-code {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 0.6; transform: translateY(-10px); }
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* --- Radial gradient background overlay --- */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, rgba(0, 220, 255, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 20% 80%, rgba(0, 100, 200, 0.04) 0%, transparent 50%);
+}
+
+/* --- Grid background --- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 220, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 220, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* --- Scanline effect --- */
+.scanline {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.015) 2px,
+    rgba(0, 0, 0, 0.015) 4px
+  );
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-primary);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+}
+
+h1 { font-size: var(--text-4xl); line-height: var(--text-4xl--line-height); }
+h2 { font-size: var(--text-3xl); line-height: var(--text-3xl--line-height); font-weight: 600; }
+h3 { font-size: var(--text-2xl); line-height: var(--text-2xl--line-height); font-weight: 600; }
+
+/* --- Links --- */
+a:not([class]) {
+  color: var(--color-accent);
+}
+a:not([class]):hover {
+  color: var(--color-accent-hover);
+}
+a {
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-background);
+}
+
+/* --- Scrollbar (Webkit) --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-background); }
+::-webkit-scrollbar-thumb { background: var(--color-surface-hover); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-border); }
+
+/* --- Hide scrollbar for carousels --- */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   Prose / Typography Plugin Overrides
+   ============================================ */
+
+.prose {
+  --tw-prose-body: var(--color-muted);
+  --tw-prose-headings: var(--color-primary);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-code: var(--color-primary);
+  --tw-prose-pre-bg: var(--color-surface);
+  --tw-prose-pre-code: var(--color-primary);
+  --tw-prose-bold: var(--color-primary);
+  --tw-prose-quotes: var(--color-muted);
+  --tw-prose-quote-borders: var(--color-border);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-border);
+  --tw-prose-hr: var(--color-border);
+  --tw-prose-th-borders: var(--color-border);
+  --tw-prose-td-borders: var(--color-border);
+}

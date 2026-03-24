@@ -1,8 +1,12 @@
 'use client';
 
 import type { Project } from '@/data/projects';
-import PageWrapper from '@/components/layout/PageWrapper';
-import ProjectTabs from '@/components/projects/ProjectTabs';
+import SiteLayout from '@/components/layout/SiteLayout';
+import ProjectTabs from '@/components/ui/ProjectTabs';
+import TechTags from '@/components/ui/TechTags';
+import VideoThumbnail from '@/components/ui/VideoThumbnail';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
 
 interface ProjectDetailClientProps {
   project: Project;
@@ -10,41 +14,60 @@ interface ProjectDetailClientProps {
 }
 
 export default function ProjectDetailClient({ project, tabContents }: ProjectDetailClientProps) {
+  const githubUrl = project.linkType === 'external'
+    ? project.href
+    : `https://github.com/Zuus89/${project.slug}`;
+
   return (
-    <PageWrapper showIntro={false}>
-      <article>
-        <header className="major">
-          <h2>{project.title}</h2>
-          <p>{project.description}</p>
-        </header>
+    <SiteLayout>
+      {/* Breadcrumbs */}
+      <nav className="text-sm text-muted mb-8">
+        <Link href="/projects" className="hover:text-primary transition-colors duration-fast">
+          Projects
+        </Link>
+        <span className="mx-2">/</span>
+        <span className="text-primary">{project.title}</span>
+      </nav>
 
-        {project.mediaType === 'image' && (
-          <div className="image main">
-            <img
-              src={project.mediaSrc}
-              alt={project.mediaAlt || project.title}
-              className="image fit"
-            />
-          </div>
+      {/* Header */}
+      <header className="mb-8">
+        <h1 className="text-3xl font-bold tracking-tight mb-4">{project.title}</h1>
+        <p className="text-muted text-lg mb-4">{project.description}</p>
+        <TechTags tags={project.tags} />
+      </header>
+
+      {/* Media */}
+      {project.mediaType === 'image' && (
+        <div className="rounded-md overflow-hidden mb-8">
+          <img
+            src={project.mediaSrc}
+            alt={project.mediaAlt || project.title}
+            className="w-full object-cover"
+          />
+        </div>
+      )}
+      {project.mediaType === 'video' && (
+        <div className="rounded-md overflow-hidden mb-8">
+          <VideoThumbnail src={project.mediaSrc} alt={project.mediaAlt} className="aspect-video" />
+        </div>
+      )}
+
+      {/* Actions */}
+      <div className="flex gap-3 mb-10">
+        <Button href={githubUrl} external size="md">
+          View on GitHub
+        </Button>
+        {project.powerBiUrl && (
+          <Button href={project.powerBiUrl} external variant="secondary" size="md">
+            Live Dashboard
+          </Button>
         )}
+      </div>
 
-        <ul className="actions special">
-          <li>
-            <a
-              href={project.href.startsWith('/') ? `https://github.com/Zuus89` : project.href}
-              className="button large"
-              target="_blank"
-              rel="noopener"
-            >
-              View on GitHub
-            </a>
-          </li>
-        </ul>
-
-        {project.tabs && project.tabs.length > 0 && (
-          <ProjectTabs tabs={project.tabs} tabContents={tabContents} />
-        )}
-      </article>
-    </PageWrapper>
+      {/* Tabs */}
+      {project.tabs && project.tabs.length > 0 && (
+        <ProjectTabs tabs={project.tabs} tabContents={tabContents} />
+      )}
+    </SiteLayout>
   );
 }
